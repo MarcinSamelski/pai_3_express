@@ -15,6 +15,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+var aboutRouter = require('./routes/about');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,6 +29,8 @@ app.use('/hello', helloRouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/about', aboutRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
